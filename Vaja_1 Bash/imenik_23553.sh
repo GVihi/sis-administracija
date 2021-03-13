@@ -93,13 +93,14 @@ delete(){
 
 #Search function -isci flag
 search(){
-    ime=""
-    priimek=""
-    naslov=""
-    posta=""
-    kraj=""
-    tel=""
-    id=""
+    #Setting these variables to .* in case they are not set by user, the function can search for anything in their place
+    ime=.*
+    priimek=.*
+    naslov=.*
+    posta=.*
+    kraj=.*
+    tel=.*
+    id=.*
     echo "Selected search"
 
     #Shifted arguemnts, so $1 is now the next flag
@@ -154,12 +155,14 @@ search(){
         shift
     done
 
-    grep $ime imenik_23553.dat | grep $priimek | grep $naslov | grep $posta | grep $kraj | grep $tel | grep $id
+    #echo "$ime;;$priimek;;$naslov;;$posta;;$kraj;;$tel;;$id"
+    grep -oE "$ime;;$priimek;;$naslov;;$posta;;$kraj;;$tel;;$id" imenik_23553.dat
 }
 
 #Edit function -uredi flag
 edit(){
     echo "Selected edit"
+    #TODO: Never, spent way too much time on this assignment already, have to complete other assignments  (⌣_⌣”)
 }
 
 #Name of the phone book
