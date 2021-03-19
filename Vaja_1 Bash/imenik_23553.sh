@@ -87,8 +87,15 @@ delete(){
         shift
     done
 
+    echo "Are you sure you want to delete this entry? (y/n)"
+    read confirm
+
+    if [[ $confirm == "y" ]]
+    then
     #Delete entry that contains $id
     sed -i "/$id/d" imenik_23553.dat
+    fi
+
 }
 
 #Search function -isci flag
@@ -162,7 +169,105 @@ search(){
 #Edit function -uredi flag
 edit(){
     echo "Selected edit"
-    #TODO: Never, spent way too much time on this assignment already, have to complete other assignments  (⌣_⌣”)
+
+    shift
+
+    #Getting the id from arguments
+    if [[ $1 == "-id" ]]
+    then
+        shift
+        id=$1
+    else
+        echo "First argument must be an id!"
+        exit 1
+    fi
+
+    #Grepping line containing $id from imenik_23553.dat
+    line="$(grep $id imenik_23553.dat)"
+    #echo $line
+
+    #Cutting the grepped line into respectable variables
+    ime="$(echo $line | cut -f 1 -d ';')"
+    priimek="$(echo $line | cut -f 3 -d ';')"
+    naslov="$(echo $line | cut -f 5 -d ';')"
+    posta="$(echo $line | cut -f 7 -d ';')"
+    kraj="$(echo $line | cut -f 9 -d ';')"
+    tel="$(echo $line | cut -f 11 -d ';')"
+
+    #Printing current information associated with $id
+    echo
+    echo "Old information: "
+    echo "Ime: $ime"
+    echo "Priimek: $priimek"
+    echo "Naslov: $naslov"
+    echo "Posta: $posta"
+    echo "Kraj: $kraj"
+    echo "Telefon: $tel"
+    
+    #Check if first argument ($1) matches any of the flags and shift until number of arguments ($#) is 0 
+    while [[ $# -gt 0 ]]
+    do
+        if [[ $1 == "-ime" ]]       #Check if argument matches any flag }
+        then                        #                                   }   }
+            shift                   #Shift, so $1 is the value          }   }   }    If statements apply for other coresponding flags
+            ime=$1                  #Set variable to value              }   }
+        fi                          #                                   }
+
+        if [[ $1 == "-priimek" ]]
+        then
+            shift
+            priimek=$1
+        fi
+
+        if [[ $1 == "-naslov" ]]
+        then
+            shift
+            naslov=$1
+        fi
+
+        if [[ $1 == "-posta" ]]
+        then
+            shift
+            posta=$1
+        fi
+
+        if [[ $1 == "-kraj" ]]
+        then
+            shift
+            kraj=$1
+        fi
+
+        if [[ $1 == "-tel" ]]
+        then
+            shift
+            tel=$1
+        fi
+
+        #Shift needed after every iteration
+        shift
+    done
+
+    #Printing new information
+    echo
+    echo "New information: "
+    echo "Ime: $ime"
+    echo "Priimek: $priimek"
+    echo "Naslov: $naslov"
+    echo "Posta: $posta"
+    echo "Kraj: $kraj"
+    echo "Telefon: $tel"
+
+    #Getting confirmation
+    echo
+    echo "Are you sure you want to update this information? (y/n)"
+    read confirm
+
+    #If confirmed; change info
+    if [[ $confirm == "y" ]]
+    then
+        sed -i "/$id/d" imenik_23553.dat
+        echo "$ime;;$priimek;;$naslov;;$posta;;$kraj;;$tel;;$id" >> imenik_23553.dat
+    fi
 }
 
 #Name of the phone book

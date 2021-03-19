@@ -24,4 +24,11 @@ read id
 #Printing entire phone book.
 cat imenik_23553.dat
 
-#Edit (-uredi) not implemented in ./imenik_23553.sh (⌣_⌣”)
+#Edit
+echo "Enter ID of person that you'd like to edit: "
+#Reading input from terminal
+read id
+
+./imenik_23553.sh -uredi -id $id -ime peter -priimek klepec -tel "555-6969"
+
+./imenik_23553.sh -isci -id $id
