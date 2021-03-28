@@ -1,0 +1,40 @@
+commit c7b48541f55521cda7bb7d4fe03c2f84547bf07f --Hash commita, uporaben za npr. rollback
+Merge: 83555da 7c9c45b                          --Hash merge-a
+Author: Gašper Viher <gasper.viher@gmail.com>   --Informacije o "avtorju" commita
+Date:   Thu Mar 11 18:11:13 2021 +0100          --Datum in čas commita
+
+    Fixed conflicts when merging test to master                                     --Združil veji master in test, razrešitev konfilkta v porocilo_23553.txt
+
+commit 83555daf0958f1e5fb23bf0e7f634c4a132369ef
+Author: Gašper Viher <gasper.viher@gmail.com>
+Date:   Thu Mar 11 18:04:39 2021 +0100
+
+    Changed first line in text file to say current day in the week                  --V veji "master" zamenjal poved s trenutnim dnevom v tednu
+
+commit 7c9c45b1148aff64b638277201ef316245a34b7a
+Author: Gašper Viher <gasper.viher@gmail.com>
+Date:   Thu Mar 11 18:00:11 2021 +0100
+
+    Deleted last character in 23553.txt and added current date and time in new line --V veji "test" izbrisal zadnji znak povedi in v novi vrstici zapisal datum in uro
+commit 0032e5e40a5bd375ecaed10597dcb8f77ca4438d
+Author: Gašper Viher <gasper.viher@gmail.com>
+Date:   Thu Mar 11 17:55:51 2021 +0100
+
+    Added folder students and created file 23553.txt inside of it                   --Ustvaril direktorij students, kreiral datoteko 23553.txt in v njo vpisal "Danes pa dežuje"
+commit 01d936e8504f04fbeaf84ed7641471326ee486c9
+Author: mlaky88 <uros88mlakar@gmail.com>
+Date:   Sat Mar 28 10:08:20 2020 +0100
+
+    Update README.md
+
+commit 7b355a9156056041a66741fb2165155e306622b2
+Author: mlaky88 <uros88mlakar@gmail.com>
+Date:   Mon Mar 2 15:31:33 2020 +0100
+
+    Create print.sh
+
+commit 21b8489fbd878037584488d636f0faec53f7d27b
+Author: mlaky88 <uros88mlakar@gmail.com>
+Date:   Mon Mar 2 15:29:00 2020 +0100
+
+    Initial commit

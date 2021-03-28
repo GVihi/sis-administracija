@@ -1,0 +1,1 @@
+Resolved conflict by deleting "Danes pa dežuje" line from test branch.
