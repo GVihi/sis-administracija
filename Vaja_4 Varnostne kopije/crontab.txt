@@ -1,0 +1,8 @@
+Frequency of backups depends on machine usecase (home pc? server?).
+If the machine is a database, it's probably a good idea to have hourly or at least daily backups.
+For home PC's it's probably ok to have monthly backups of important files, like pictures and documents.
+
+Crontab entries:
+0 2 * * * backup-critical.sh mirror #Schedule critical files backup daily at 2AM.
+0 2 * * sun  backup-other.sh mirror #Schedule other files backup every Sunday at 2AM.
+@monthly maketar.sh #Schedule archiving of backup in the first minute of every month.
