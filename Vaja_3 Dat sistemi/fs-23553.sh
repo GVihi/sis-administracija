@@ -1,3 +1,9 @@
+#README:
+#"Vsaka izmed zastvic naj bo implementirana v lastni funkciji."
+#Mentioned at the end of assignment instructions... >:( 
+#Can't be bothered to go and change the entire structure of script.
+#If statements will have to do. Angry_face.png
+
 #If statements to check flags
 #-izpis lists all available drives
 #Use example: ./fs-23553.sh -izpis
