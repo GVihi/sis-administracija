@@ -1,37 +1,37 @@
+#If statements checking for flags
+
 if [[ $1 == "-urediIP" ]]
 then
     ip=$2
-    #Honestly no clue how to do this
-    #Could do some sed regex magic, but
-    #DNS would also get recognised
-    #as IP
-    #Same applies to -dodajDNS 
+    oldip=$(grep -oE "[0-9]+[.][0-9]+[.][0-9]+[.][0-9]+/[0-9]+" /etc/netplan/config.yaml) #Stored previous ip with mask into variable
+    echo "old IP: $oldip"
+    echo "new IP: $ip"
 
-    #Will submit assignment as is
-    #Still got 2 more out of 3 submits
-    #Consultations Tuesday 6.4.
+    sudo sed -i "s@$oldip@$ip@g" /etc/netplan/config.yaml #Replaces old IP with new IP
 fi
 
 if [[ $1 == "-dodajDNS" ]]
 then
     dns=$2
-    #cd /etc/netplan
-    #echo "              - $dns"
-    #string="              - $dns"
-    #sudo bash -c 'echo $dns >> config.yaml'
+    cd /etc/netplan
+    echo "              - $dns"
+    string="              - ${dns}"
+    sudo bash -c "echo $string >> config.yaml" #Echo DNS into config.yaml file with sudo privileges
+    #Spaces don't seem to get printed into the file no matter what I do :sad_face:
 fi
 
 if [[ $1 == "-zaženi" ]]
 then
-    sudo netplan --debug generate
-    sudo netplan apply
+    sudo netplan --debug generate #Generates configuration from config.yaml file
+    sudo netplan apply #Applies changes
 fi
 
 if [[ $1 == "-ustvari" ]]
 then
     cd /etc/netplan
-    sudo touch config.yaml
-    sudo bash -c 'cat > config.yaml <<EOF
+    sudo touch config.yaml #Creates new config file
+    #Prints required network configuration into config.yaml file. Source: https://askubuntu.com/questions/1064921/scripting-netplan-for-static-ip-address
+    sudo bash -c 'cat > config.yaml <<EOF 
     network:
       version: 2
       renderer: networkd
