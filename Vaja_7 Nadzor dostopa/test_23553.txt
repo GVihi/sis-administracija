@@ -1,0 +1,79 @@
+pomembni_projekti/:
+total 16
+drwxrw----+ 2 gasper progskupina_23553 4096 Apr 30 18:48 projektA
+drwxrw----+ 2 gasper progskupina_23553 4096 Apr 30 18:48 projektB
+drwxr-----+ 2 gasper progskupina_23553 4096 Apr 30 18:48 projektC
+drwxrwx---+ 2 gasper progskupina_23553 4096 Apr 30 18:55 testi
+
+pomembni_projekti/projektA:
+total 0
+
+pomembni_projekti/projektB:
+total 0
+
+pomembni_projekti/projektC:
+total 0
+
+pomembni_projekti/testi:
+total 0
+-rw-rw-r-- 1 gasper gasper 0 Apr 30 18:55 test1
+# file: pomembni_projekti/
+# owner: gasper
+# group: gasper
+user::rwx
+group::rwx
+other::r-x
+
+# file: pomembni_projekti//projektA
+# owner: gasper
+# group: progskupina_23553
+user::rwx
+user:ps1:rw-
+user:ps2:rw-
+user:ps5:r--
+group::---
+mask::rw-
+other::---
+
+# file: pomembni_projekti//projektC
+# owner: gasper
+# group: progskupina_23553
+user::rwx
+user:ps5:r--
+group::---
+mask::r--
+other::---
+
+# file: pomembni_projekti//testi
+# owner: gasper
+# group: progskupina_23553
+user::rwx
+user:ps1:rw-
+user:ps2:rw-
+user:ps3:rw-
+user:ps4:rw-
+user:ps5:rw-
+user:ps6:--x
+group::---
+mask::rwx
+other::---
+
+# file: pomembni_projekti//testi/test1
+# owner: gasper
+# group: gasper
+user::rw-
+group::rw-
+other::r--
+
+# file: pomembni_projekti//projektB
+# owner: gasper
+# group: progskupina_23553
+user::rwx
+user:ps2:r--
+user:ps3:rw-
+user:ps4:rw-
+user:ps5:r--
+group::---
+mask::rw-
+other::---
+
