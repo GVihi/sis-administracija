@@ -1,0 +1,8 @@
+[Unit]
+Description=Service for posel_t_23553.sh
+Wants=23553.timer
+[Service]
+Type=simple
+ExecStart=/bin/posel_t_23553.sh
+[Install]
+WantedBy=multi-user.target

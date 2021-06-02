@@ -1,0 +1,10 @@
+[Unit]
+Description=Service for posel_23553.sh
+After=network.target
+[Service]
+Type=simple
+ExecStart=/bin/posel_23553.sh
+Restart=always
+RestartSec=3
+[Install]
+WantedBy=multi-user.target
